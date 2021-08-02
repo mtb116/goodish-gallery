@@ -3,7 +3,7 @@ import ArtWall from './components/ArtWall';
 
 function App() {
   return (
-      <ArtWall/>
+    <ArtWall/>
   );
 }
 
