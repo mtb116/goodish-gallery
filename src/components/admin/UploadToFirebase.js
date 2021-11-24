@@ -7,9 +7,9 @@ class UploadFirebase extends Component {
       imgUrl: "",
       name: "",
       description: "",
-      date: 1,
-      year: 2020,
-      tags: { commission: false, fanart: false, mature: false, banner: false },
+      date: "",
+      tags: { commission: false, fanart: false, mature: false, banner: false, screenshot: false},
+      other: []
     };
 
   handleImageUrl = (url) => {
@@ -34,16 +34,10 @@ class UploadFirebase extends Component {
     this.setState({ tags });
   };
 
-  handleDate = (month) => {
-    let date = parseInt(month);
+  handleDate = (date) => {;
     this.setState({ date });
   };
-
-  handleYear = (whatYear) => {
-    let year = parseInt(whatYear);
-    this.setState({ year });
-  };
-
+  
   render() {
     console.log(this.state);
     return (
@@ -53,7 +47,6 @@ class UploadFirebase extends Component {
           onImageDescriptionChange={this.handleImageDescription}
           onCheckboxChange={this.handleCheckboxChange}
           onDateChange={this.handleDate}
-          onYearChange={this.handleYear}
           imageInfo={this.state}
         />
         <UploadImage state={this.state} onDownloadURL={this.handleImageUrl} />

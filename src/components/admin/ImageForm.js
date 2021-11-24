@@ -15,15 +15,10 @@ const ImageInfoForm = (props) => {
         type="text"
         onChange={(e) => props.onImageDescriptionChange(e.target.value)}
       />
-      <label>Month</label>
+      <label>Date</label>
       <input
-        type="number"
+        type="date"
         onChange={(e) => props.onDateChange(e.target.value)}
-      />
-      <label>Year</label>
-      <input
-        type="number"
-        onChange={(e) => props.onYearChange(e.target.value)}
       />
       <br />
       <CheckboxList
