@@ -21,6 +21,12 @@ const ImageInfoForm = (props) => {
         onChange={(e) => props.onDateChange(e.target.value)}
       />
       <br />
+      <label>Other Tags (Separate by comma)</label>
+      <input
+        type="text"
+        onChange={(e) => props.onOtherChange(e.target.value)}
+      />
+      <br />
       <CheckboxList
         checkboxObj={props.imageInfo.tags}
         onCheckboxChange={props.onCheckboxChange}

@@ -34,10 +34,15 @@ class UploadFirebase extends Component {
     this.setState({ tags });
   };
 
-  handleDate = (date) => {;
+  handleDate = (date) => {
     this.setState({ date });
   };
-  
+
+  handleOther = (other) => {
+    let newArray = other.split(", ");
+    this.setState({other: [...newArray]});
+  }
+
   render() {
     console.log(this.state);
     return (
@@ -47,6 +52,7 @@ class UploadFirebase extends Component {
           onImageDescriptionChange={this.handleImageDescription}
           onCheckboxChange={this.handleCheckboxChange}
           onDateChange={this.handleDate}
+          onOtherChange={this.handleOther}
           imageInfo={this.state}
         />
         <UploadImage state={this.state} onDownloadURL={this.handleImageUrl} />
