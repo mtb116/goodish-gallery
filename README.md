@@ -34,3 +34,5 @@ To Do:
         --material ui has a transition component
         -- has a click function on the Cards --- add onClick to CardAction Area
         -- break the object-fit somewhere to expand?
+
+-- remove outdated material ui core
