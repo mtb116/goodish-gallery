@@ -135,11 +135,10 @@ const ArtWall = () => {
                 <img src={focusImg.imgUrl} className={classes2.root}/>
               </div>
               <Typography id="modal-modal-title" variant="h6" component="h2">
-                Text in a modal
+                {focusImg.name}
               </Typography>
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                <p>Hello hello this is the title of the focus image: {focusImg.name}</p>
+                {focusImg.description}
               </Typography>
             </Box>
           </Modal>
