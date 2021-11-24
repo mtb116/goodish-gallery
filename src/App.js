@@ -55,15 +55,15 @@ class App extends Component {
     return (  
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            <ArtWall/>
-          </Route>
           <Route path="/login">
             <AdminLogin onSignIn={this.signInWithEmailPassword} onEmailChange={this.handleEmailChange} onPasswordChange={this.handlePasswordChange} auth={this.state.auth} />
           </Route>
           <PrivateRoute path="/uploadimage" auth={this.state.auth}>
             <UploadToFirebase />
           </PrivateRoute>
+          <Route path="/">
+            <ArtWall/>
+          </Route>
         </Switch>
       </BrowserRouter>
     );
