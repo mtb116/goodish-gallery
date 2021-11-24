@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 
 const AdminLogin = (props) => {
+  console.log(props)
 
   if (props.auth === true) {
     return <Redirect to='/uploadimage' />

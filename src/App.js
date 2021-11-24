@@ -9,7 +9,7 @@ import {
 import PrivateRoute from "./routes/PrivateRoute";
 import AdminLogin from "./components/admin/AdminLogin";
 import ArtWall from './components/ArtWall';
-import UploadImage from './components/admin/UploadImage';
+import UploadToFirebase from './components/admin/UploadToFirebase';
 
 class App extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class App extends Component {
             <AdminLogin onSignIn={this.signInWithEmailPassword} onEmailChange={this.handleEmailChange} onPasswordChange={this.handlePasswordChange} auth={this.state.auth} />
           </Route>
           <PrivateRoute path="/uploadimage" auth={this.state.auth}>
-            <UploadImage />
+            <UploadToFirebase />
           </PrivateRoute>
         </Switch>
       </BrowserRouter>
