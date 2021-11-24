@@ -95,9 +95,10 @@ const ArtWall = () => {
     } else {
       return (
         <div className={classes.root}>
+          <h1>Morriebird's ArtWall</h1>
           <FormControlLabel
             control={<Switch checked={checked} onChange={handleChange} />}
-            label="Show"
+            label="Show title and description"
           />
           <Grid container spacing={1}>
             {data.map((image) => (
