@@ -9,6 +9,7 @@ import {
 import PrivateRoute from "./routes/PrivateRoute";
 import AdminLogin from "./components/admin/AdminLogin";
 import ArtWall from './components/ArtWall';
+import Comic from './components/Comic';
 import UploadToFirebase from './components/admin/UploadToFirebase';
 
 class App extends Component {
@@ -61,8 +62,11 @@ class App extends Component {
           <PrivateRoute path="/uploadimage" auth={this.state.auth}>
             <UploadToFirebase />
           </PrivateRoute>
-          <Route path="/">
+          <Route exact path="/">
             <ArtWall/>
+          </Route>
+          <Route path='/comic'>
+            <Comic/>
           </Route>
         </Switch>
       </BrowserRouter>
