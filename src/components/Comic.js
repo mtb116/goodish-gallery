@@ -1,4 +1,5 @@
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
+import { Link } from "react-router-dom";
 import { Grid, Card, CardHeader, CardActionArea, CardContent } from '@material-ui/core';
 
 const Comic = () => {
@@ -27,15 +28,17 @@ const Comic = () => {
         {data.map((comic) => (
           <Grid item xs={4}>
             <CardActionArea>
-              <Card>
-                <CardHeader title={comic.title}/>
-                <div>
-                  <img src={comic.titleUrl} style={style}/>
-                </div>
-                <CardContent>
-                  {comic.description}
-                </CardContent>
-              </Card>
+              <Link to={comic.route}>
+                <Card>
+                  <CardHeader title={comic.title}/>
+                  <div>
+                    <img src={comic.titleUrl} style={style}/>
+                  </div>
+                  <CardContent>
+                    {comic.description}
+                  </CardContent>
+                </Card>
+              </Link>
             </CardActionArea>
           </Grid>
         ))}
