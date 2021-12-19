@@ -9,6 +9,7 @@ import {
 import PrivateRoute from "./routes/PrivateRoute";
 import AdminLogin from "./components/admin/AdminLogin";
 import ArtWall from './components/ArtWall';
+import ComicWall from './components/ComicWall';
 import Comic from './components/Comic';
 import UploadToFirebase from './components/admin/UploadToFirebase';
 
@@ -51,6 +52,7 @@ class App extends Component {
   handlePasswordChange(password) {
     this.setState({ password: password });
   }
+  
 
   render() { 
     return (  
@@ -66,8 +68,9 @@ class App extends Component {
             <ArtWall/>
           </Route>
           <Route path='/comic'>
-            <Comic/>
+            <ComicWall/>
           </Route>
+          <Route path='/:id' children={<Comic/>} />
         </Switch>
       </BrowserRouter>
     );
