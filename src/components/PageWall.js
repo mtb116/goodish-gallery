@@ -9,47 +9,35 @@ import {
   useRouteMatch
 } from "react-router-dom"
 import Page from './Page';
+import { db } from '../firebase';
 
 const PageWall = (props) => {
 
   const {
     pages
   } = props
-  console.log('line 18: ' + pages)
 
-  const [pageList, setPages] = useState(["fill"]);
+  const [pageList, setPages] = useState('loading');
 
-
-  const pageRef = useFirestore()
-  .collection('allComics')
-  .doc(props.pages)
-  .collection('pages');
-  
-  const { status, data } = useFirestoreCollectionData(pageRef);
-  
-  
   useEffect(() => {
-    setPages(data)
-    console.log(data)
+    let pageList = [];
+    db.collection('allComics').doc(pages).collection('pages')
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        pageList.push(doc.data());
+      });
+      setPages(pageList)
+    })
+    .catch((error) => {
+      console.log('error in PageWall: ' + error)
+    })
+
   }, [pages])
-
   
-  console.log(pageList)
   let { path, url } = useRouteMatch();
-
-  // const refreshPage = (list) => {
-  //   if (list !== undefined) {
-  //     return list
-  //   } else {
-  //     console.log(list);
-  //     window.location.reload(true);
-  //     return list
-  //   }
-  // }
-
-  // const realList = refreshPage(pageList)
   
-  if (status === 'loading' || pageList === undefined) {
+  if (pageList === 'loading') {
     return (
       <div>
         loading...
@@ -69,7 +57,7 @@ const PageWall = (props) => {
           <h3>Please select a topic.</h3>
         </Route>
         <Route path={`${path}/:pageNum`}>
-          <Page pages={pageList} comic={props.pages} pageCollection={pageRef}/>
+          <Page pages={pageList} />
         </Route>
       </Switch>
       </div>
