@@ -1,52 +1,26 @@
+import React, { useEffect, useState } from 'react';
 import { useFirestore, useFirestoreCollectionData} from 'reactfire';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch
-} from "react-router-dom"
-import PageDisplay from './PageDisplay';
+import { useParams } from "react-router-dom"
+
 
 const Page = (props) => {
 
-  const pageRef = useFirestore()
-  .collection('allComics')
-  .doc(props.pages)
-  .collection('pages');
+  const {
+    pages
+  } = props
 
-  const { status, data } = useFirestoreCollectionData(pageRef);
-  console.log(data)
-  // Can't setPage(data) bc of infinate redender
+  let { pageNum } = useParams();
 
-  let { path, url } = useRouteMatch();
+  const pageArr = pages.filter(page => page.page == pageNum);
+  const page = pageArr[0]
+  console.log(page)
 
-  if (status === 'loading') {
-    return (
-      <div>
-        loading...
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        {data.map((page) => (
-          <Link to={`${url}/${page.page}`}>
-            <p>{page.name}</p>
-          </Link>
-        ))}
-        <Switch>
-        <Route exact path={path}>
-          <h3>Please select a topic.</h3>
-        </Route>
-        <Route path={`${path}/:pageNum`}>
-          <PageDisplay pages={data} comic={props.pages} pageCollection={pageRef}/>
-        </Route>
-      </Switch>
-      </div>
-    )
-  }
+  return ( 
+    <div>
+      <img src={page.pageUrl}/>
+    </div>
+
+  );
 }
  
 export default Page;
