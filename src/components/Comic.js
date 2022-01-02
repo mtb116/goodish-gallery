@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useFirestore } from 'reactfire';
-import Page from './Page';
+import PageWall from './PageWall';
 
 const Comic = () => {
 
@@ -19,19 +19,16 @@ const Comic = () => {
     console.log('Error getting comic pages: ', error);
   })
 
-  console.log("these are from ComicPage " + comicId)
-  
-  
   if (comicId === null) {
     return (
       <div>
-        loading...
+        loading the Comic component...
       </div>
     )
   } else {
     return (
       <div>
-        <Page pages={comicId}/>
+        <PageWall pages={comicId}/>
       </div>
     )
   }
