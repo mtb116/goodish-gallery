@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useFirestore, useFirestoreCollectionData} from 'reactfire';
 import { useParams } from "react-router-dom"
-
+import { makeStyles } from '@material-ui/core';
 
 const Page = (props) => {
 
@@ -15,9 +13,20 @@ const Page = (props) => {
   const page = pageArr[0]
   console.log(page)
 
+  const makeCenter = makeStyles({
+    img: {
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      width: '50%'
+    }
+  });
+
+  const center = makeCenter();
+
   return ( 
     <div>
-      <img src={page.pageUrl}/>
+      <img src={page.pageUrl} alt='' className={center.img}/>
     </div>
 
   );
