@@ -27,7 +27,7 @@ const PageWall = (props) => {
       querySnapshot.forEach((doc) => {
         pageList.push(doc.data());
       });
-      setPages(pageList)
+      setPages(pageList.sort((a, b) => (a.page > b.page) ? 1 : -1))
     })
     .catch((error) => {
       console.log('error in PageWall: ' + error)
@@ -36,6 +36,8 @@ const PageWall = (props) => {
   }, [pages])
   
   let { path, url } = useRouteMatch();
+
+  console.log(pageList)
   
   if (pageList === 'loading') {
     return (
@@ -46,12 +48,15 @@ const PageWall = (props) => {
   } else {
     return (
       <div>
-        {pageList.map((page) => (
-          // need to sort from 1 ... num and list from left to right
-          <Link to={`${url}/${page.page}`}>
-            <p>{page.page}</p>
-          </Link>
-        ))}
+        <div>
+          {pageList.map((page) => (
+            <p style={{display: 'inline', padding: '5px'}}>
+              <Link to={`${url}/${page.page}`}>
+                {page.page}
+              </Link>
+            </p>
+          ))}
+        </div>
         <Switch>
         <Route exact path={path}>
           <h3>Please select a topic.</h3>
