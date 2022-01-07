@@ -37,7 +37,7 @@ const PageWall = (props) => {
   
   let { path, url } = useRouteMatch();
 
-  console.log(pageList)
+  console.log(path)
   
   if (pageList === 'loading') {
     return (
@@ -48,22 +48,24 @@ const PageWall = (props) => {
   } else {
     return (
       <div>
-        <div>
-          {pageList.map((page) => (
-            <p style={{display: 'inline', padding: '5px'}}>
-              <Link to={`${url}/${page.page}`}>
-                {page.page}
-              </Link>
-            </p>
-          ))}
-        </div>
         <Switch>
-        <Route exact path={path}>
-          <h3>Please select a topic.</h3>
-        </Route>
-        <Route path={`${path}/:pageNum`}>
-          <Page pages={pageList} />
-        </Route>
+          <Route exact path={path}>
+            <h3>Select a page</h3>
+            <div>
+              {pageList.map((page) => (
+                <p style={{display: 'inline', padding: '5px'}}>
+                  <Link to={`${url}/${page.page}`}>
+                    {page.page}
+                  </Link>
+                </p>
+              ))}
+            </div>
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path={`${path}/:pageNum`}>
+            <Page pages={pageList} />
+          </Route>
       </Switch>
       </div>
     )
