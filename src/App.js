@@ -67,7 +67,7 @@ class App extends Component {
           <Route exact path="/">
             <ArtWall/>
           </Route>
-          <Route path='/comic'>
+          <Route path='/comics'>
             <ComicWall/>
           </Route>
           <Route path='/:id' children={<Comic/>} />
