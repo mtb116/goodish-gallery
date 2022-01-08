@@ -1,6 +1,5 @@
 import { React, Component } from "react";
 import ReactJson from "react-json-view";
-import { Link } from "react-router-dom";
 
 class ErrorBoundary extends Component {
   constructor(props) {

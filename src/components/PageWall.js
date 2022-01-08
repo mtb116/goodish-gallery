@@ -53,7 +53,7 @@ const PageWall = (props) => {
             <h3>Select a page</h3>
             <div>
               {pageList.map((page) => (
-                <p style={{display: 'inline', padding: '5px'}}>
+                <p style={{display: 'inline', padding: '5px'}} key={page.page}>
                   <Link to={`${url}/${page.page}`}>
                     {page.page}
                   </Link>

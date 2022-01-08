@@ -51,8 +51,6 @@ const ArtWall = () => {
   const [toggle, setToggle] = useState(false);
   const [focusImg, setFocusImg] = useState("no image selected");
 
-  console.log(focusImg)
-
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
@@ -106,7 +104,7 @@ const ArtWall = () => {
             xs={image.tags.banner ? 6 : 3 } 
             key={image.NO_ID_FIELD}
             >
-              <Card >
+              <Card key={image.NO_ID_FIELD}>
                 <CardActionArea onClick={() => handleToggle(image) }>
                   <CardMedia
                   className={classes.media}
@@ -132,7 +130,7 @@ const ArtWall = () => {
           >
             <Box sx={style}>
               <div>
-                <img src={focusImg.imgUrl} className={classes2.root}/>
+                <img alt='' className={classes2.root} src={focusImg.imgUrl}/>
               </div>
               <Typography id="modal-modal-title" variant="h6" component="h2">
                 {focusImg.name}

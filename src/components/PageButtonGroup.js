@@ -6,7 +6,7 @@ import { Button, ButtonGroup } from '@mui/material';
 const PageButtonGroup = (props) => {
 
   const checkPrevious = () => {
-    if (props.pageNum == 1) {
+    if (props.pageNum === 1) {
       return 1;
     } else {
       return props.pageNum - 1;
@@ -14,7 +14,7 @@ const PageButtonGroup = (props) => {
   }
 
   const checkNext = () => {
-    if (props.pageNum == props.latest) {
+    if (props.pageNum === props.latest) {
       return props.latest;
     } else {
       return props.pageNum + 1;
