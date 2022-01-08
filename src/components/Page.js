@@ -1,17 +1,19 @@
+import React, { useEffect } from 'react';
 import PageButtonGroup from './PageButtonGroup'
-import { Link, useParams, useRouteMatch } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core';
 
 const Page = (props) => {
 
-  const {
-    pages
-  } = props
+  useEffect(() => {
+    window.scrollTo(0,0)
+  })
+
+  const { pages } = props
 
   let { pageNum, id } = useParams();
 
-  const pageArr = pages.filter(page => page.page == pageNum);
-  const page = pageArr[0]
+  const page = pages.filter(page => page.page == pageNum)[0];
   const pagelatest = pages.sort((a, b) => (a.page > b.page) ? -1 : 1)[0]
 
   const makeCenter = makeStyles({
@@ -20,6 +22,15 @@ const Page = (props) => {
       marginLeft: 'auto',
       marginRight: 'auto',
       width: '50%'
+    },
+    img: {
+      height: '100%',
+      width: '100%',
+      objectFit: 'contain',
+    }, 
+    text:
+    {
+      textAlign: 'center'
     }
   });
 
@@ -27,11 +38,13 @@ const Page = (props) => {
 
   return ( 
     <div className={center.content}>
-      <div className={center.content}>
+      <div className={center.text}>
         <PageButtonGroup id={id} pageNum={parseInt(pageNum)} latest={pagelatest.page}/>
       </div>
-      <img src={page.pageUrl} alt=''/>
-      <div className={center.content}>
+      <div>
+        <img className={center.img} src={page.pageUrl} alt=''/>
+      </div>
+      <div className={center.text}>
         <PageButtonGroup id={id} pageNum={parseInt(pageNum)} latest={pagelatest.page}/>
       </div>
     </div>
