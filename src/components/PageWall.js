@@ -36,9 +36,9 @@ const PageWall = (props) => {
   }, [pages])
   
   let { path, url } = useRouteMatch();
-
   console.log(path)
-  
+  console.log(url)
+
   if (pageList === 'loading') {
     return (
       <div>

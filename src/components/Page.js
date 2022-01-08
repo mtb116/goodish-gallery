@@ -1,4 +1,5 @@
-import { Link, useParams, useRouteMatch } from "react-router-dom"
+import PageButtonGroup from './PageButtonGroup'
+import { Link, useParams, useRouteMatch } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core';
 
 const Page = (props) => {
@@ -8,14 +9,10 @@ const Page = (props) => {
   } = props
 
   let { pageNum, id } = useParams();
-  let { path, url } = useRouteMatch();
-  console.log('path ' + path)
-  console.log('url ' + url)
-  console.log(id)
 
   const pageArr = pages.filter(page => page.page == pageNum);
   const page = pageArr[0]
-  console.log(page)
+  const pagelatest = pages.sort((a, b) => (a.page > b.page) ? -1 : 1)[0]
 
   const makeCenter = makeStyles({
     content: {
@@ -23,9 +20,6 @@ const Page = (props) => {
       marginLeft: 'auto',
       marginRight: 'auto',
       width: '50%'
-    },
-    text: {
-      textAlign: 'center'
     }
   });
 
@@ -33,12 +27,13 @@ const Page = (props) => {
 
   return ( 
     <div className={center.content}>
-      <div>
-        <Link to={`/${id}/${parseInt(pageNum) + 1}`}>next page</Link>
-        <p className={center.text}>{page.page}</p>
-        <Link to={`/${id}/${parseInt(pageNum) - 1}`}>previous page</Link>
+      <div className={center.content}>
+        <PageButtonGroup id={id} pageNum={parseInt(pageNum)} latest={pagelatest.page}/>
       </div>
       <img src={page.pageUrl} alt=''/>
+      <div className={center.content}>
+        <PageButtonGroup id={id} pageNum={parseInt(pageNum)} latest={pagelatest.page}/>
+      </div>
     </div>
 
   );
