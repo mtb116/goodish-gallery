@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { React, useEffect } from 'react';
 import PageButtonGroup from './PageButtonGroup'
 import { useParams } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core';
@@ -12,8 +12,8 @@ const Page = (props) => {
   const { pages } = props
 
   let { pageNum, id } = useParams();
-
-  const page = pages.filter(page => page.page === pageNum)[0];
+  
+  const page = pages.filter(page => page.page === parseInt(pageNum))[0];
   const pagelatest = pages.sort((a, b) => (a.page > b.page) ? -1 : 1)[0]
 
   const makeCenter = makeStyles({
