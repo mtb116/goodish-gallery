@@ -97,6 +97,7 @@ const ArtWall = () => {
           <FormControlLabel
             control={<Switch checked={checked} onChange={handleChange} />}
             label="Show title and description"
+            style={{color: '#f3ffbd'}}
           />
           <Grid container spacing={1}>
             {data.map((image) => (

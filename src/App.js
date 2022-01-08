@@ -60,16 +60,18 @@ class App extends Component {
   render() { 
     return (  
       <BrowserRouter>
-        <Button>
-          <Link to={'/'}>
-            <Typography variant='h6'>Home</Typography>
-          </Link>
-        </Button>
-        <Button>
-          <Link to={'/comics'}>
-            <Typography variant='h6'>Comics</Typography>
-          </Link>
-        </Button>
+        <div className='secondary'>
+          <Button>
+            <Link to={'/'}>
+              <Typography variant='h6'>Home</Typography>
+            </Link>
+          </Button>
+          <Button>
+            <Link to={'/comics'}>
+              <Typography variant='h6'>Comics</Typography>
+            </Link>
+          </Button>
+        </div>
         <Switch>
           <Route path="/login">
             <AdminLogin onSignIn={this.signInWithEmailPassword} onEmailChange={this.handleEmailChange} onPasswordChange={this.handlePasswordChange} auth={this.state.auth} />
