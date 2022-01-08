@@ -26,17 +26,17 @@ const ComicWall = () => {
       <h1>All the Comics Stuff</h1>
       <Grid container spacing={3}>
         {data.map((comic) => (
-          <Grid item xs={4} key={comic.NO_ID_FIELD}>
+          <Grid item xs={3} key={comic.NO_ID_FIELD}>
             <CardActionArea>
               <Link to={comic.route}>
                 <Card>
-                  <CardHeader title={comic.title}/>
+                  <CardHeader title={comic.title} style={{textAlign: 'center'}}/>
                   <div>
                     <img alt='' src={comic.titleUrl} style={style}/>
+                    <CardContent>
+                      {comic.description}
+                    </CardContent>
                   </div>
-                  <CardContent>
-                    {comic.description}
-                  </CardContent>
                 </Card>
               </Link>
             </CardActionArea>
