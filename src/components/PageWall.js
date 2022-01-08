@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useFirestore, useFirestoreCollectionData} from 'reactfire';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch
-} from "react-router-dom"
-import Page from './Page';
 import { db } from '../firebase';
+import { useFirestore, useFirestoreDocData} from 'reactfire';
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom"
+import Page from './Page';
 
 const PageWall = (props) => {
 
-  const {
-    pages
-  } = props
+  const { pages } = props
 
   const [pageList, setPages] = useState('loading');
+
+  let { path, url } = useRouteMatch();
 
   useEffect(() => {
     let pageList = [];
@@ -32,14 +25,12 @@ const PageWall = (props) => {
     .catch((error) => {
       console.log('error in PageWall: ' + error)
     })
-
   }, [pages])
-  
-  let { path, url } = useRouteMatch();
-  console.log(path)
-  console.log(url)
 
-  if (pageList === 'loading') {
+  const comicRef =  useFirestore().collection('allComics').doc(pages);
+  const { status, data } = useFirestoreDocData(comicRef)
+  
+  if (pageList === 'loading' || status === 'loading') {
     return (
       <div>
         loading...
@@ -48,6 +39,15 @@ const PageWall = (props) => {
   } else {
     return (
       <div>
+        <img style={{display: 'block', 
+                     marginLeft: 'auto', 
+                     marginRight: 'auto', 
+                     width: '50%',
+                     paddingBottom: '40px'
+                    }}
+             src={data.headerUrl} 
+             alt=''
+        />
         <Switch>
           <Route exact path={path}>
             <h3>Select a page</h3>
