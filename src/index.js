@@ -4,13 +4,16 @@ import 'firebase/firestore';
 import { FirebaseAppProvider } from 'reactfire';
 import { firebaseConfig } from './firebase';
 import App from './App';
+import ErrorBoundary from './ErrorBoundary';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 ReactDOM.render(
-  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-    <App />
-  </FirebaseAppProvider>,
+  <ErrorBoundary>
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <App />
+    </FirebaseAppProvider>
+  </ErrorBoundary>,
   document.getElementById('root')
 );
 
