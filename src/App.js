@@ -61,12 +61,12 @@ class App extends Component {
     return (  
       <BrowserRouter>
         <div className='secondary'>
-          <Button>
+          <Button style={{padding: '5px'}}>
             <Link to={'/'}>
               <Typography variant='h6'>Home</Typography>
             </Link>
           </Button>
-          <Button>
+          <Button style={{padding: '5px'}}>
             <Link to={'/comics'}>
               <Typography variant='h6'>Comics</Typography>
             </Link>
