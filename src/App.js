@@ -9,10 +9,11 @@ import {
 } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import AdminLogin from "./components/admin/AdminLogin";
-import ComicWall from './components/ComicWall';
-import Comic from './components/Comic';
-import UploadToFirebase from './components/admin/UploadToFirebase';
 import ArtWall from "./components/ArtWall";
+import Comic from './components/Comic';
+import ComicWall from './components/ComicWall';
+import NoMatch from './components/NoMatch';
+import UploadToFirebase from './components/admin/UploadToFirebase';
 import { Button, Typography } from '@mui/material';
 
 class App extends Component {
@@ -83,6 +84,9 @@ class App extends Component {
             <ComicWall/>
           </Route>
           <Route path='/:id' children={<Comic/>} />
+          <Route path='*'>
+            <NoMatch/>
+          </Route>
         </Switch>
       </BrowserRouter>
     );
