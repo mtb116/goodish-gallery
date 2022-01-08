@@ -2,14 +2,18 @@ import { React, Component } from "react";
 import firebase from "firebase/app"
 import "firebase/auth"
 import {
-  Switch,
+  BrowserRouter,
+  Link,
   Route,
-  BrowserRouter
+  Switch
 } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import AdminLogin from "./components/admin/AdminLogin";
-import ArtWall from './components/ArtWall';
+import ComicWall from './components/ComicWall';
+import Comic from './components/Comic';
 import UploadToFirebase from './components/admin/UploadToFirebase';
+import ArtWall from "./components/ArtWall";
+import { Button, Typography } from '@mui/material';
 
 class App extends Component {
   constructor(props) {
@@ -50,10 +54,21 @@ class App extends Component {
   handlePasswordChange(password) {
     this.setState({ password: password });
   }
+  
 
   render() { 
     return (  
       <BrowserRouter>
+        <Button>
+          <Link to={'/'}>
+            <Typography variant='h6'>Home</Typography>
+          </Link>
+        </Button>
+        <Button>
+          <Link to={'/comics'}>
+            <Typography variant='h6'>Comics</Typography>
+          </Link>
+        </Button>
         <Switch>
           <Route path="/login">
             <AdminLogin onSignIn={this.signInWithEmailPassword} onEmailChange={this.handleEmailChange} onPasswordChange={this.handlePasswordChange} auth={this.state.auth} />
@@ -61,9 +76,13 @@ class App extends Component {
           <PrivateRoute path="/uploadimage" auth={this.state.auth}>
             <UploadToFirebase />
           </PrivateRoute>
-          <Route path="/">
+          <Route exact path="/">
             <ArtWall/>
           </Route>
+          <Route path='/comics'>
+            <ComicWall/>
+          </Route>
+          <Route path='/:id' children={<Comic/>} />
         </Switch>
       </BrowserRouter>
     );
