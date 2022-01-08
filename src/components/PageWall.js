@@ -43,17 +43,18 @@ const PageWall = (props) => {
                      marginLeft: 'auto', 
                      marginRight: 'auto', 
                      width: '50%',
-                     paddingBottom: '40px'
+                     paddingBottom: '40px',
+                     paddingTop: '25px'
                     }}
              src={data.headerUrl} 
              alt=''
         />
         <Switch>
           <Route exact path={path}>
-            <h3>Select a page</h3>
-            <div>
+            <h3 style={{textAlign: 'center'}}>Select a page</h3>
+            <div style={{textAlign: 'center', fontSize: '35px'}}>
               {pageList.map((page) => (
-                <p style={{display: 'inline', padding: '5px'}} key={page.page}>
+                <p style={{display: 'inline', padding: '20px'}} key={page.page}>
                   <Link to={`${url}/${page.page}`}>
                     {page.page}
                   </Link>
