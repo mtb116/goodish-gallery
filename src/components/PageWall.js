@@ -51,7 +51,7 @@ const PageWall = (props) => {
         />
         <Switch>
           <Route exact path={path}>
-            <h3 style={{textAlign: 'center'}}>Select a page</h3>
+            <h1 style={{textAlign: 'center'}}>Select a page</h1>
             <div style={{textAlign: 'center', fontSize: '35px'}}>
               {pageList.map((page) => (
                 <p style={{display: 'inline', padding: '20px'}} key={page.page}>
