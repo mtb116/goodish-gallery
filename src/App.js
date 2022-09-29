@@ -14,7 +14,7 @@ import ComicWall from './components/ComicWall';
 import NoMatch from './components/NoMatch';
 import UploadToFirebase from './components/admin/UploadToFirebase';
 import { Button, Typography } from '@mui/material';
-import GalleryControl from "./components/GalleryControl";
+import UseFirestore from "./components/UseFirestore";
 
 class App extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class App extends Component {
             <UploadToFirebase />
           </PrivateRoute>
           <Route exact path="/">
-            <GalleryControl/>
+            <UseFirestore/>
           </Route>
           <Route path='/comics'>
             <ComicWall/>
