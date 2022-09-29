@@ -10,6 +10,8 @@ const PageWall = (props) => {
 
   const [pageList, setPages] = useState('loading');
 
+  console.log(pageList)
+
   let { path, url } = useRouteMatch();
 
   useEffect(() => {
