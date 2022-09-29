@@ -6,3 +6,5 @@ function NewsLetterSignUp() {
       </div>
     )
   }
+
+export default NewsLetterSignUp;

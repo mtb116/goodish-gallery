@@ -9,12 +9,12 @@ import {
 } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import AdminLogin from "./components/admin/AdminLogin";
-import ArtWall from "./components/ArtWall";
 import Comic from './components/Comic';
 import ComicWall from './components/ComicWall';
 import NoMatch from './components/NoMatch';
 import UploadToFirebase from './components/admin/UploadToFirebase';
 import { Button, Typography } from '@mui/material';
+import GalleryControl from "./components/GalleryControl";
 
 class App extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class App extends Component {
             <UploadToFirebase />
           </PrivateRoute>
           <Route exact path="/">
-            <ArtWall/>
+            <GalleryControl/>
           </Route>
           <Route path='/comics'>
             <ComicWall/>

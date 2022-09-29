@@ -12,3 +12,5 @@ function GalleryImage(props) {
     </div>
   )
 }
+
+export default GalleryImage;

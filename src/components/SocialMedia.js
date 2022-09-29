@@ -9,3 +9,5 @@ function SocialMedia() {
       </div>
     )
   }
+
+export default SocialMedia;

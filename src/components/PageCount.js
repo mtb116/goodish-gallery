@@ -23,3 +23,5 @@ function PageCount(props) {
         </table>
     )
   }
+
+export default PageCount;

@@ -3,3 +3,5 @@ function GalleryDescription(props) {
         <p>{props.description}</p>
     )
   }
+
+export default GalleryDescription;
