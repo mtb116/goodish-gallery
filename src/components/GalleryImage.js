@@ -8,7 +8,7 @@ function GalleryImage(props) {
 
     return (
     <div>
-      <img src={props.url} style={containImg} alt={""}/>
+        <img src={props.url} style={containImg} alt={""}/>
     </div>
   )
 }

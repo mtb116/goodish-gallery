@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import GalleryDescription from './GalleryDescription';
 import GalleryTitle from './GalleryTitle';
 import GalleryImage from './GalleryImage';
@@ -24,6 +24,7 @@ class GalleryControl extends React.Component {
         const comics = this.props.comics
         const chapters = this.props.chapters
         const pages = this.props.pages
+        console.log(pages)
 
         const galleryStyles = {
         display: 'flex',
@@ -80,12 +81,18 @@ class GalleryControl extends React.Component {
         </figure>
         ))
         
-        const comicPageGallery = pages.map((page) => (
-        <figure style={comicPageStyle} key={page.NO_ID_FIELD}>
-            <GalleryImage url={page.pageUrl} imgHeight={'100%'} objectFit={'scale-down'}/>
-        </figure>
-
-        ))
+        
+        let comicPageGallery = null;
+        if(pages.length === 0) {
+            comicPageGallery = <div>This chapter got no pages!</div>;
+        } else {
+            comicPageGallery = pages.map((page) => (
+                <figure style={comicPageStyle} key={page.NO_ID_FIELD}>
+                    <GalleryImage url={page.pageUrl} imgHeight={'100%'} objectFit={'scale-down'}/>
+                </figure>
+            ))
+        }
+        
 
         let currentlyVisibleState = null;
         if (this.state.galleryVisible === 'cover') {
@@ -100,8 +107,11 @@ class GalleryControl extends React.Component {
 
         return (
             <div>
+                <h1>Morriebird</h1>
                 <h2>Comics</h2>
-                <h3>Title</h3>
+                <div>
+                    <Link onClick={() => this.handleClick('cover')} style={{color: 'inherit'}}>Home</Link>
+                </div>
                 <div className={"flexContainer"}>
                     <div className={"flexItem-a"}>
                     <div style={galleryStyles} className={"grid"}>
