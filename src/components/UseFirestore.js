@@ -14,9 +14,9 @@ const UseFirestore = () => {
     const comicCollection = collection(db, 'allComics');
     const {status: comicsStatus, data: comics} = useFirestoreCollectionData(comicCollection);
 
+    // default state is the first comic ID because it needs valid info even if is not being rendered the component is still being mounted.
     const [comicID, setComic] = useState('UiU09n8V6AaOnl3qboo0')
 
-    console.log(comicID)
     const comicRef = doc(db, 'allComics', comicID);
     const {status: comicStatus, data: comic} = useFirestoreDocData(comicRef);
 

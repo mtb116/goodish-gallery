@@ -2,6 +2,7 @@ function PageCount(props) {
 
     const numberStyle = {
       textAlign: 'center',
+      fontSize: '14px'
     }
   
     let pageList = [];
@@ -15,12 +16,16 @@ function PageCount(props) {
     const forthSix = <tr>{pageList.splice(0, 6)}</tr>
   
     return (
-        <table style={{marginBottom: '15px'}}>
+      <div>
+        <table style={{margin: 'auto'}}>
+          <tbody>
             {firstSix}
             {secondSix}
             {thirdSix}
             {forthSix}
+          </tbody>
         </table>
+      </div>
     )
   }
 
