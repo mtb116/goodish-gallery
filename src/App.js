@@ -11,6 +11,7 @@ import {
   FirestoreProvider,
   useFirebaseApp
 } from 'reactfire';
+import GalleryControl from "./components/GalleryControl";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     return (  
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
+          <Route path='/'>
             <FirestoreProvider sdk={firestoreInstance}>
               <UseFirestore/>
             </FirestoreProvider>

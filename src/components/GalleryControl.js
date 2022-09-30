@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import GalleryDescription from './GalleryDescription';
 import GalleryTitle from './GalleryTitle';
 import GalleryImage from './GalleryImage';
@@ -16,7 +17,6 @@ class GalleryControl extends React.Component {
     }
     
     handleClick = (visible) => {
-        console.log(visible)
         this.setState({galleryVisible: visible});
     }
     
@@ -61,9 +61,11 @@ class GalleryControl extends React.Component {
         
         const comicCoverGallery = comics.map((comic) => (
         <figure style={comicCoverStyle} onClick={() => this.handleClick('chapter')} className={'click'} key={comic.NO_ID_FIELD}>
-            <GalleryTitle title={comic.title}/>
-            <GalleryImage url={comic.titleUrl} imgHeight={'400px'} objectFit={'scale-down'}/>
-            <GalleryDescription description={comic.description} textWidth={'200px'}/>
+            <div onClick={() => this.props.getComic(comic.NO_ID_FIELD)}>
+                <GalleryTitle title={comic.title}/>
+                <GalleryImage url={comic.titleUrl} imgHeight={'400px'} objectFit={'scale-down'}/>
+                <GalleryDescription description={comic.description} textWidth={'200px'}/>
+            </div>
         </figure>
         ))
         
@@ -71,7 +73,7 @@ class GalleryControl extends React.Component {
         <figure style={comicChpStyle} onClick={() => this.handleClick('page')} className={'click'} key={chapter.NO_ID_FIELD}>
             <GalleryTitle title={chapter.name}/>
             <GalleryImage url={chapter.pageUrl} imgHeight={'150px'} objectFit={'none'}/>
-            <GalleryDescription description={chapter.description}/>
+            <GalleryDescription description={chapter.description} textWidth={'100%'}/>
             <PageCount chpStart={chapter.chpStart} chpEnd={chapter.chpEnd}/>
         </figure>
         ))

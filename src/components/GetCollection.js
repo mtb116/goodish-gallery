@@ -10,6 +10,7 @@ import GalleryControl from './GalleryControl';
 function GetCollection(props) {
     const db = useFirestore();
     
+    //has to be this way because ReactFire is a bunch of hooks and can't use hooks in conditional statements in class components, in a function that is not a custom hook or a react component, in a callback like useEffect
     const chapterCollection = collection(db, 'allComics', props.comicID, 'chapters');
     const {status: chpStatus, data: chapters } = useFirestoreCollectionData(chapterCollection);
 
@@ -25,7 +26,7 @@ function GetCollection(props) {
     } else {
         return (
             <React.Fragment>
-                <GalleryControl comics={props.comics} chapters={chapters} pages={pages} />
+                <GalleryControl comics={props.comics} chapters={chapters} pages={pages} getComic={props.getComic} />
             </React.Fragment>
         )
     }
