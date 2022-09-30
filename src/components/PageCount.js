@@ -7,7 +7,7 @@ function PageCount(props) {
   
     let pageList = [];
     for (let p = props.chpStart; p <= props.chpEnd; p++) {
-      pageList.push(<td style={numberStyle}>{p}</td>)
+      pageList.push(<td style={numberStyle} key={p}>{p}</td>)
     };
   
     const firstSix = <tr>{pageList.splice(0, 6)}</tr>
@@ -15,6 +15,11 @@ function PageCount(props) {
     const thirdSix = <tr>{pageList.splice(0, 6)}</tr>
     const forthSix = <tr>{pageList.splice(0, 6)}</tr>
   
+  if (props.chpStart === 0) {
+    return (
+      <div></div>
+    )
+  } else {
     return (
       <div>
         <table style={{margin: 'auto'}}>
@@ -27,6 +32,8 @@ function PageCount(props) {
         </table>
       </div>
     )
+  }
+
   }
 
 export default PageCount;
