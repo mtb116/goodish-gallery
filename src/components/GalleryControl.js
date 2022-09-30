@@ -21,7 +21,7 @@ class GalleryControl extends React.Component {
     }
     
     render() {
-        const comics = this.props.data
+        const comics = this.props.comics
         const chapters = this.props.chapters
         const pages = this.props.pages
 
@@ -60,7 +60,7 @@ class GalleryControl extends React.Component {
         }
         
         const comicCoverGallery = comics.map((comic) => (
-        <figure style={comicCoverStyle} onClick={() => this.handleClick('chapter')} className={'click'}>
+        <figure style={comicCoverStyle} onClick={() => this.handleClick('chapter')} className={'click'} key={comic.NO_ID_FIELD}>
             <GalleryTitle title={comic.title}/>
             <GalleryImage url={comic.titleUrl} imgHeight={'400px'} objectFit={'scale-down'}/>
             <GalleryDescription description={comic.description}/>
@@ -68,7 +68,7 @@ class GalleryControl extends React.Component {
         ))
         
         const comicChpGallery = chapters.map((chapter) =>(
-        <figure style={comicChpStyle} onClick={() => this.handleClick('page')} className={'click'}>
+        <figure style={comicChpStyle} onClick={() => this.handleClick('page')} className={'click'} key={chapter.NO_ID_FIELD}>
             <GalleryTitle title={chapter.name}/>
             <GalleryImage url={chapter.pageUrl} imgHeight={'150px'} objectFit={'none'}/>
             <GalleryDescription description={chapter.description}/>
@@ -77,7 +77,7 @@ class GalleryControl extends React.Component {
         ))
         
         const comicPageGallery = pages.map((page) => (
-        <figure style={comicPageStyle}>
+        <figure style={comicPageStyle} key={page.NO_ID_FIELD}>
             <GalleryImage url={page.pageUrl} imgHeight={'100%'} objectFit={'scale-down'}/>
         </figure>
 

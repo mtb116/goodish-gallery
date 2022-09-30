@@ -1,19 +1,14 @@
-import { React, Component } from "react";
+import React from "react";
 import "firebase/auth"
 import {
   BrowserRouter,
-  Link,
   Route,
   Switch
 } from "react-router-dom";
-import { Button, Typography } from '@mui/material';
 import UseFirestore from "./components/UseFirestore";
-import { doc, getFirestore } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 import {
-  FirebaseAppProvider,
   FirestoreProvider,
-  useFirestoreDocData,
-  useFirestore,
   useFirebaseApp
 } from 'reactfire';
 
