@@ -1,6 +1,12 @@
 function GalleryDescription(props) {
+  const descriptionStyle = {
+    width: props.textWidth,
+    margin: 'auto'
+  }
     return (
-        <p>{props.description}</p>
+      <div>
+        <p style={descriptionStyle}>{props.description}</p>
+      </div>
     )
   }
 

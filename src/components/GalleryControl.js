@@ -63,7 +63,7 @@ class GalleryControl extends React.Component {
         <figure style={comicCoverStyle} onClick={() => this.handleClick('chapter')} className={'click'} key={comic.NO_ID_FIELD}>
             <GalleryTitle title={comic.title}/>
             <GalleryImage url={comic.titleUrl} imgHeight={'400px'} objectFit={'scale-down'}/>
-            <GalleryDescription description={comic.description}/>
+            <GalleryDescription description={comic.description} textWidth={'200px'}/>
         </figure>
         ))
         
