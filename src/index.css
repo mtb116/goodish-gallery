@@ -1,26 +1,46 @@
 body {
-  background-color: #211d1e;
-  margin: 100;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #1C1E24;
+  color: #F3FFBD;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.secondary {
-  background-color: #b2dbbf;
-  outline-style: solid;
-  outline-color: #70c1b3;
-}
-
-h1 {
-  color: #f3ffbd;
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: lightblue
+  }
 }
 
 
+@media only screen and (min-width: 400px) {
+  .flexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* width of these items determines space used on page */
+  .flexItem-a {
+    background: tomato;
+    padding: 5px;
+    margin: 5px;
+    width: 75%;
+    margin-top: 10px;
+  }
+
+  .flexItem-b {
+    background: tomato;
+    padding: 5px;
+    margin: 5px;
+    width: 25%;
+    height: 150px;
+    margin-top: 10px;
+  }
+}
+
+.click:hover {
+  background-color: orange;
 }
