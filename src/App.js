@@ -11,7 +11,6 @@ import {
   FirestoreProvider,
   useFirebaseApp
 } from 'reactfire';
-import GalleryControl from "./components/GalleryControl";
 
 function App() {
 

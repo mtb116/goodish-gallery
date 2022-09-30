@@ -72,7 +72,7 @@ class GalleryControl extends React.Component {
         const comicChpGallery = chapters.map((chapter) =>(
         <figure style={comicChpStyle} onClick={() => this.handleClick('page')} className={'click'} key={chapter.NO_ID_FIELD}>
             <GalleryTitle title={chapter.name}/>
-            <GalleryImage url={chapter.pageUrl} imgHeight={'150px'} objectFit={'none'}/>
+            <GalleryImage url={chapter.chpUrl} imgHeight={'150px'} objectFit={'cover'}/>
             <GalleryDescription description={chapter.description} textWidth={'100%'}/>
             <PageCount chpStart={chapter.chpStart} chpEnd={chapter.chpEnd}/>
         </figure>
