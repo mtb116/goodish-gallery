@@ -1,5 +1,5 @@
 import React from 'react';
-import { collection } from 'firebase/firestore';
+import { collection, orderBy, query } from 'firebase/firestore';
 import {
     useFirestoreCollectionData,
     useFirestore,
@@ -15,7 +15,8 @@ function GetCollection(props) {
     const {status: chpStatus, data: chapters } = useFirestoreCollectionData(chapterCollection);
 
     const pageCollection = collection(db, 'allComics', props.comicID, 'pages');
-    const {status: pageStatus, data: pages } = useFirestoreCollectionData(pageCollection);
+    const pageQuery = query(pageCollection, orderBy('page'))
+    const {status: pageStatus, data: pages } = useFirestoreCollectionData(pageQuery);
 
     if (chpStatus === 'loading' || pageStatus === 'loading') {
         return (
