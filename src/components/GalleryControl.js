@@ -21,8 +21,6 @@ class GalleryControl extends React.Component {
     }
     
     render() {
-        console.log(this.props)
-        const status = this.props.status
         const comics = this.props.data
         const chapters = this.props.chapters
         const pages = this.props.pages
@@ -86,11 +84,11 @@ class GalleryControl extends React.Component {
         ))
 
         let currentlyVisibleState = null;
-        if (this.state.galleryVisible == 'cover') {
+        if (this.state.galleryVisible === 'cover') {
         currentlyVisibleState = comicCoverGallery
-        } else if (this.state.galleryVisible == 'chapter') {
+        } else if (this.state.galleryVisible === 'chapter') {
         currentlyVisibleState = comicChpGallery
-        } else if (this.state.galleryVisible == 'page') {
+        } else if (this.state.galleryVisible === 'page') {
         currentlyVisibleState = comicPageGallery
         } else {
         currentlyVisibleState = <h2>something went wrong</h2>
