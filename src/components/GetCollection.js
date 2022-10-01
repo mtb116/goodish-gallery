@@ -28,7 +28,7 @@ function GetCollection(props) {
     } else {
         return (
             <React.Fragment>
-                <GalleryControl comics={props.comics} chapters={chapters} pages={pages} getComic={props.getComic} getChapter={setChapter} />
+                <GalleryControl comics={props.comics} comicID={props.comicID} chapters={chapters} pages={pages} getComic={props.getComic} getChapter={setChapter} />
             </React.Fragment>
         )
     }

@@ -24,7 +24,6 @@ class GalleryControl extends React.Component {
         const comics = this.props.comics
         const chapters = this.props.chapters
         const pages = this.props.pages
-        console.log(pages)
 
         const galleryStyles = {
         display: 'flex',
@@ -110,24 +109,24 @@ class GalleryControl extends React.Component {
                 <h1>Morriebird</h1>
                 <h2>Comics</h2>
                 <div>
-                    <Link onClick={() => this.handleClick('cover')} style={{color: 'inherit'}}>Home</Link>
+                    <Link onClick={() => this.handleClick('cover')} to={{pathname: '/'}} style={{color: 'inherit'}}>Home</Link>
                 </div>
                 <div className={"flexContainer"}>
                     <div className={"flexItem-a"}>
-                    <div style={galleryStyles} className={"grid"}>
-                    {currentlyVisibleState}
-                    </div>
+                        <div style={galleryStyles} className={"grid"}>
+                            {currentlyVisibleState}
+                        </div>
                     </div>
                     <div className={"flexItem-b"}>
-                    <div>
-                        <NewsLetterSignUp/>
-                    </div>
-                    <div>
-                        <SocialMedia/>
-                    </div>
-                    <div>
-                        <TipJar/>
-                    </div>
+                        <div>
+                            <NewsLetterSignUp comicID={this.props.comicID} visible={this.state.galleryVisible}/>
+                        </div>
+                        <div>
+                            <SocialMedia/>
+                        </div>
+                        <div>
+                            <TipJar/>
+                        </div>
                     </div>
                 </div>
                 </div>

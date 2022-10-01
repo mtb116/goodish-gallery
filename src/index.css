@@ -6,9 +6,7 @@ body {
 }
 
 @media only screen and (max-width: 500px) {
-  body {
-    background-color: lightblue
-  }
+
 }
 
 
@@ -24,7 +22,6 @@ body {
 
   /* width of these items determines space used on page */
   .flexItem-a {
-    background: tomato;
     padding: 5px;
     margin: 5px;
     width: 75%;
@@ -32,7 +29,6 @@ body {
   }
 
   .flexItem-b {
-    background: tomato;
     padding: 5px;
     margin: 5px;
     width: 25%;
@@ -42,5 +38,5 @@ body {
 }
 
 .click:hover {
-  background-color: orange;
+  background-color: rgb(98, 98, 98);
 }
