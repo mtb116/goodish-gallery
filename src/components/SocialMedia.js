@@ -1,7 +1,6 @@
-import { doc, collection } from 'firebase/firestore';
+import { collection } from 'firebase/firestore';
 import {
   useFirestoreCollectionData,
-  useFirestoreDocData,
   useFirestore,
 } from 'reactfire';
 
@@ -21,7 +20,7 @@ function SocialMedia() {
   const db = useFirestore();
     
   const mediaCollection = collection(db, 'allMedia');
-  const {status: mediaStatus, data: media} = useFirestoreCollectionData(mediaCollection)
+  const {status: mediaStatus, data: media} = useFirestoreCollectionData(mediaCollection);
 
 
   if (mediaStatus === 'loading') {
