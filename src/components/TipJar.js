@@ -9,7 +9,7 @@ function TipJar() {
 
   const kofiStyle={
     border: '0px',
-    height: '36px'
+    height: '36px',
   }
 
   const db = useFirestore();
@@ -25,7 +25,7 @@ function TipJar() {
     return (
       <div style={{marginTop: '15px', textAlign: 'center'}}>
         <a href={kofi.url} target='_blank'>
-          <img height='36' style={kofiStyle} src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+          <img height='36' style={kofiStyle} src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' />
         </a>
       </div>
     )
