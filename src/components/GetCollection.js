@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { collection } from 'firebase/firestore';
+import { collection, orderBy, query } from 'firebase/firestore';
 import {
     useFirestoreCollectionData,
     useFirestore,
@@ -17,7 +17,9 @@ function GetCollection(props) {
     // default is first chapter ID of the first comic because it needs valid info when component mounts 
     const [chapterID, setChapter] = useState('bfpDyJQhb1Lj8QVR5yLd');
     const pageCollection = collection(db, 'allComics', props.comicID, 'chapters', chapterID, 'pages');
-    const {status: pgCollectionStatus, data: pages} = useFirestoreCollectionData(pageCollection);
+    //sorts pages by number, lowest to greatest
+    const q = query(pageCollection, orderBy('page'));
+    const {status: pgCollectionStatus, data: pages} = useFirestoreCollectionData(q);
     
     if (chpCollectionStatus === 'loading' || pgCollectionStatus === 'loading') {
         return (
