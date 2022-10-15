@@ -24,7 +24,7 @@ function TipJar() {
   } else {
     return (
       <div style={{marginTop: '15px', textAlign: 'center'}}>
-        <a href={kofi.url} target='_blank'>
+        <a href={kofi.url} target='_blank' rel='noreferrer'>
           <img height='36' style={kofiStyle} src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' />
         </a>
       </div>
