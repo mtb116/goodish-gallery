@@ -10,8 +10,14 @@ import GetCollection from "./GetCollection";
 const UseFirestore = () => {
     
     const db = useFirestore();
-    
+
+    // https://stackoverflow.com/questions/70569588/very-high-number-of-reads-in-firestore-database-in-my-react-project
+    // // maybe some way of using UseEffect to limit renders
+
+    // this is the actual call to the firebase. the next line is just translating it
     const comicCollection = collection(db, 'allComics');
+
+
     const {status: comicsStatus, data: comics} = useFirestoreCollectionData(comicCollection);
 
     // default state is the first comic ID because it needs valid info even if is not being rendered the component is still being mounted.
